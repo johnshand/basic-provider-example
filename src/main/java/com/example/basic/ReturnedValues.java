@@ -7,10 +7,6 @@ public class ReturnedValues {
     private int someInt;
     private List<String> array;
 
-    public ReturnedValues(){
-
-    }
-
     public ReturnedValues(String someString, int someInt, List<String> array) {
         this.someString = someString;
         this.someInt = someInt;
