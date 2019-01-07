@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ReturnedValues {
     private String someString;
-    private int someInt;
+    private int  someInt;
     private List<String> array;
 
     public ReturnedValues(String someString, int someInt, List<String> array) {
