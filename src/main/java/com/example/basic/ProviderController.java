@@ -12,4 +12,4 @@ public class ProviderController {
     public Object provide() {
                 return new ReturnedValues("I am a String", 2019, Arrays.asList("This", "Little", "Array"));
         }
-    }
+}
