@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ReturnedValues {
     private String someString;
-    private int  someInt;
+    private int someInt;
     private List<String> array;
 
     public ReturnedValues(String someString, int someInt, List<String> array) {
@@ -13,27 +13,27 @@ public class ReturnedValues {
         this.array = array;
     }
 
-    public String getsomeString() {
+    public String getSomeString() {
         return someString;
     }
 
-    public void setsomeString(String someString) {
+    public void setSomeString(String someString) {
         this.someString = someString;
     }
 
-    public int getsomeInt() {
+    public int getSomeInt() {
         return someInt;
     }
 
-    public void setsomeInt(int someInt) {
+    public void setSomeInt(int someInt) {
         this.someInt = someInt;
     }
 
-    public List<String> getarray() {
+    public List<String> getArray() {
         return array;
     }
 
-    public void setarray(List<String> array) {
+    public void setArray(List<String> array) {
         this.array = array;
     }
 
