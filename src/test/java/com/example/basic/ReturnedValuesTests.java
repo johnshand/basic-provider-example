@@ -16,19 +16,19 @@ public class ReturnedValuesTests {
     @Test
     public void intIsReturned() throws NoSuchFieldException {
 
-        int expectedint = 2019;
+        int expectedInt = 2019;
 
         //given
         final ReturnedValues values = new ReturnedValues("string", 2000, Arrays.asList("This", "Little", "Array"));
 
         //when
-        values.setsomeInt(expectedint);
+        values.setSomeInt(expectedInt);
 
         //then
         final Field field = values.getClass().getDeclaredField("someInt");
         field.setAccessible(true);
         try {
-            assertEquals("Fields didn't match", expectedint, field.get(values));
+            assertEquals("Fields didn't match", expectedInt, field.get(values));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
