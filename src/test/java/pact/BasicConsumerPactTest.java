@@ -17,12 +17,14 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
         webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
         properties = {"server.port=8082"})
 @Provider("BasicProvider")
-@PactBroker(host = "pact-broker.tcp.ci1-services.gb.msm.internal", port = "80")
+@PactBroker(host = "localhost", port = "800")
 public class BasicConsumerPactTest {
 
     @BeforeEach
     public void setupTestTarget(PactVerificationContext context) {
+        System.setProperty("pact.verifier.publishResults", "true");
         context.setTarget(new HttpTestTarget("localhost", 8082, "/"));
+
     }
 
     @TestTemplate
