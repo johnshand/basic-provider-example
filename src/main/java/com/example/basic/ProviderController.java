@@ -1,5 +1,6 @@
 package com.example.basic;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -10,6 +11,8 @@ public class ProviderController {
     @RequestMapping(value ="/provider", method = RequestMethod.GET )
     @ResponseBody
     public Object provide() {
-                return new ReturnedValues("12345", 2019, Arrays.asList("This", "Little", "Array"));
+                return ResponseEntity
+                        .status(200)
+                        .body(new ReturnedValues("12345", 2019, Arrays.asList("This", "Little", "Array")));
         }
 }

@@ -10,6 +10,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "au.com.dius.pact" version "3.6.1"
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -27,4 +31,9 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile group: 'au.com.dius', name: 'pact-jvm-provider-junit5_2.12', version: '3.6.1'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.1.1'
+    testCompile 'org.junit.jupiter:junit-jupiter-params:5.1.1'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
+
 }
