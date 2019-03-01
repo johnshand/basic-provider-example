@@ -8,6 +8,7 @@ package com.example.basic;
 
         import java.lang.reflect.Field;
         import java.util.Arrays;
+        import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,6 +30,50 @@ public class ReturnedValuesTests {
         field.setAccessible(true);
         try {
             assertEquals("Fields didn't match", expectedInt, field.get(values));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void stringIsReturned() throws NoSuchFieldException {
+
+        String expectedString = "expected";
+
+        //given
+        final ReturnedValues values = new ReturnedValues("string", 2000, Arrays.asList("This", "Little", "Array"));
+
+        //when
+        values.setSomeString(expectedString);
+
+        //then
+        final Field field = values.getClass().getDeclaredField("someString");
+        field.setAccessible(true);
+        try {
+            assertEquals("Fields didn't match", expectedString, field.get(values));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void listIsReturned() throws NoSuchFieldException {
+
+        List<String> expectedList = Arrays.asList("This", "Array");
+
+        //given
+        final ReturnedValues values = new ReturnedValues("string", 2000, Arrays.asList("This", "Little", "Array"));
+
+        //when
+        values.setSomeArray(expectedList);
+
+        //then
+        final Field field = values.getClass().getDeclaredField("someArray");
+        field.setAccessible(true);
+        try {
+            assertEquals("Fields didn't match", expectedList, field.get(values));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
