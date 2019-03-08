@@ -14,22 +14,24 @@ package com.example.basic;
 @SpringBootTest
 public class ReturnedValuesTests {
 
-    @Test
-    public void intIsReturned() throws NoSuchFieldException {
+    private final ReturnedValues VALUES = new ReturnedValues("string", 1, Arrays.asList("This", "Little", "Array"));
 
-        int expectedInt = 2019;
+    @Test
+    public void otherStringIsReturned() throws NoSuchFieldException {
+
+        int expectedInt = 2;
 
         //given
-        final ReturnedValues values = new ReturnedValues("string", 2000, Arrays.asList("This", "Little", "Array"));
+        ReturnedValues testValues = VALUES;
 
         //when
-        values.setSomeInt(expectedInt);
+        testValues.setSomeInt(expectedInt);
 
         //then
-        final Field field = values.getClass().getDeclaredField("someInt");
+        final Field field = testValues.getClass().getDeclaredField("someInt");
         field.setAccessible(true);
         try {
-            assertEquals("Fields didn't match", expectedInt, field.get(values));
+            assertEquals("Fields didn't match", expectedInt, field.get(testValues));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -42,16 +44,16 @@ public class ReturnedValuesTests {
         String expectedString = "expected";
 
         //given
-        final ReturnedValues values = new ReturnedValues("string", 2000, Arrays.asList("This", "Little", "Array"));
+        ReturnedValues testValues = VALUES;
 
         //when
-        values.setSomeString(expectedString);
+        testValues.setSomeString(expectedString);
 
         //then
-        final Field field = values.getClass().getDeclaredField("someString");
+        final Field field = testValues.getClass().getDeclaredField("someString");
         field.setAccessible(true);
         try {
-            assertEquals("Fields didn't match", expectedString, field.get(values));
+            assertEquals("Fields didn't match", expectedString, field.get(testValues));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -64,16 +66,16 @@ public class ReturnedValuesTests {
         List<String> expectedList = Arrays.asList("This", "Array");
 
         //given
-        final ReturnedValues values = new ReturnedValues("string", 2000, Arrays.asList("This", "Little", "Array"));
+        ReturnedValues testValues = VALUES;
 
         //when
-        values.setSomeArray(expectedList);
+        testValues.setSomeArray(expectedList);
 
         //then
-        final Field field = values.getClass().getDeclaredField("someArray");
+        final Field field = testValues.getClass().getDeclaredField("someArray");
         field.setAccessible(true);
         try {
-            assertEquals("Fields didn't match", expectedList, field.get(values));
+            assertEquals("Fields didn't match", expectedList, field.get(testValues));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }

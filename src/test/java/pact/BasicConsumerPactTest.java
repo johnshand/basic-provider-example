@@ -24,7 +24,6 @@ public class BasicConsumerPactTest {
     public void setupTestTarget(PactVerificationContext context) {
         System.setProperty("pact.verifier.publishResults", "true");
         context.setTarget(new HttpTestTarget("localhost", 8082, "/"));
-
     }
 
     @TestTemplate

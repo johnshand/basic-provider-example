@@ -13,6 +13,6 @@ public class ProviderController {
     public Object provide() {
                 return ResponseEntity
                         .status(200)
-                        .body(new ReturnedValues("12345", 2019, Arrays.asList("This", "Little", "Array")));
+                        .body(new ReturnedValues("12345", 1, Arrays.asList("This", "Little", "Array")));
         }
 }
