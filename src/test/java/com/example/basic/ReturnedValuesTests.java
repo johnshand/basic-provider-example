@@ -17,7 +17,7 @@ public class ReturnedValuesTests {
     private final ReturnedValues VALUES = new ReturnedValues("string", 1, Arrays.asList("This", "Little", "Array"));
 
     @Test
-    public void otherStringIsReturned() throws NoSuchFieldException {
+    public void intIsReturned() throws NoSuchFieldException {
 
         int expectedInt = 2;
 
